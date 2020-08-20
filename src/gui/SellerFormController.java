@@ -114,6 +114,7 @@ public class SellerFormController implements Initializable {
 			setErrorMessages(e.getErrors());
 		} catch (DbException e) {
 			Alerts.showAlert("Error saving object", null, e.getMessage(), AlertType.ERROR);
+			e.printStackTrace();
 		}
 	}
 
@@ -138,7 +139,7 @@ public class SellerFormController implements Initializable {
 		if (txtEmail.getText() == null || txtEmail.getText().trim().equals("")) {
 			exception.addError("email", "Field can't be empty");
 		}
-		obj.setName(txtEmail.getText());
+		obj.setEmail(txtEmail.getText());
 
 		if (dpBirthDate.getValue() == null) {
 			exception.addError("birthDate", "Field can't be empty");
